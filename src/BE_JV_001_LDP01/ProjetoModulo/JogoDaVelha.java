@@ -11,15 +11,15 @@ public class JogoDaVelha {
             tabuleiroDoJogo = realizarJogada(jogadorAJogar, jogador, tabuleiroDoJogo);
             desenharTabuleiro(tabuleiroDoJogo);
             if (verificarJogador(tabuleiroDoJogo, jogador[0])) {
-                System.out.println("Fim de jogo !" + jogador[0].vencedor());
+                System.out.println("\nFim de jogo ! " + jogador[0].vencedor());
                 break;
             }
             if (verificarJogador(tabuleiroDoJogo, jogador[1])) {
-                System.out.println("Fim de jogo !" + jogador[1].vencedor());
+                System.out.println("\nFim de jogo ! " + jogador[1].vencedor());
                 break;
             }
             if (verificarEmpate(tabuleiroDoJogo)) {
-                System.out.println("Jogo empatado não há mais jogadas.");
+                System.out.println("\nJogo empatado não há mais jogadas.");
                 break;
             }
             jogadorAJogar = proximoJogador(jogadorAJogar);
@@ -85,16 +85,17 @@ public class JogoDaVelha {
     private static int[] solicitarPosicao(String nome) {
         Scanner scanner = new Scanner(System.in);
         int[] posicao = new int[2];
-        System.out.printf("Vez do jogador %S.", nome);
+        System.out.printf("Vez do jogador %S. \n", nome);
         while (true) {
             try {
                 System.out.print("Digite a linha da sua jogada: ");
                 posicao[0] = scanner.nextInt();
-                System.out.print("\nAgora digite a coluna da sua jogada: ");
+                System.out.print("Agora digite a coluna da sua jogada: ");
                 posicao[1] = scanner.nextInt();
                 return posicao;
             } catch (Exception ex) {
                 System.out.println("Você não digitou um número. Digite apenas números.");
+                scanner.nextLine();
             }
         }
     }
@@ -120,10 +121,10 @@ public class JogoDaVelha {
     }
 
     private static boolean verificarJogador(String[][] tabuleiro, Jogadores jogador) {
-        if (verificarColunas(tabuleiro, jogador.simbolo) ||
-                verificarLinhas(tabuleiro, jogador.simbolo) ||
-                verificarDiagonalDireta(tabuleiro, jogador.simbolo) ||
-                verificarDiagonalInversa(tabuleiro, jogador.simbolo)) {
+        if (verificarColunas(tabuleiro, jogador.getSimbolo()) ||
+                verificarLinhas(tabuleiro, jogador.getSimbolo()) ||
+                verificarDiagonalDireta(tabuleiro, jogador.getSimbolo()) ||
+                verificarDiagonalInversa(tabuleiro, jogador.getSimbolo())) {
             return true;
         }
         return false;
@@ -132,7 +133,7 @@ public class JogoDaVelha {
     private static boolean verificarColunas(String[][] tabuleiro, String simbolo) {
         for (int coluna = 0; coluna < tabuleiro.length; coluna++) {
             for (int linha = 0; linha < tabuleiro.length; linha++) {
-                if (!tabuleiro[linha][coluna].equalsIgnoreCase(simbolo)) {
+                if (tabuleiro[linha][coluna]!=simbolo) {
                     return false;
                 }
             }
@@ -143,7 +144,7 @@ public class JogoDaVelha {
     private static boolean verificarLinhas(String[][] tabuleiro, String simbolo) {
         for (int linha = 0; linha < tabuleiro.length; linha++) {
             for (int coluna = 0; coluna < tabuleiro.length; coluna++) {
-                if (!tabuleiro[linha][coluna].equalsIgnoreCase(simbolo)) {
+                if (tabuleiro[linha][coluna]!=simbolo) {
                     return false;
                 }
             }
@@ -153,7 +154,7 @@ public class JogoDaVelha {
 
     private static boolean verificarDiagonalDireta(String[][] tabuleiro, String simbolo) {
         for (int linhaColuna = 0; linhaColuna < tabuleiro.length; linhaColuna++) {
-            if (!tabuleiro[linhaColuna][linhaColuna].equalsIgnoreCase(simbolo)) {
+            if (tabuleiro[linhaColuna][linhaColuna]!=simbolo) {
                 return false;
             }
         }
@@ -164,7 +165,7 @@ public class JogoDaVelha {
         for (int linha = 0; linha < tabuleiro.length; linha++) {
             for (int coluna = 0; coluna < tabuleiro.length; coluna++) {
                 if (linha + coluna == tabuleiro.length - 1) {
-                    if (!tabuleiro[linha][coluna].equalsIgnoreCase(simbolo)) {
+                    if (tabuleiro[linha][coluna]!=simbolo) {
                         return false;
                     }
                 }
