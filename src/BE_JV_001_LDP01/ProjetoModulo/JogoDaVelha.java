@@ -4,9 +4,10 @@ import java.util.Scanner;
 
 public class JogoDaVelha {
     public static void main(String[] args) {
-        nomearJogadores();
+        Jogadores [] jogadores = nomearJogadores();
+
     }
-    public static void nomearJogadores() {
+    public static Jogadores[] nomearJogadores() {
         Scanner scanner = new Scanner(System.in);
         Jogadores[] jogadores = new Jogadores[2];
         for (int index = 0; index < jogadores.length; index++) {
@@ -14,6 +15,7 @@ public class JogoDaVelha {
             jogadores[index] = new Jogadores(scanner.nextLine(),false);
 
         }
+        return jogadores;
     }
     static class Jogadores {
         String nome;
@@ -23,5 +25,10 @@ public class JogoDaVelha {
             this.nome = nome;
             this.vencedor = vencedor;
         }
+        @Override
+        public String toString() {
+            return this.nome+" venceu esta partida.";
+        }
+
     }
 }
