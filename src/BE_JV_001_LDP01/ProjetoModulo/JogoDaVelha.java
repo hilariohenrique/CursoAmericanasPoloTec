@@ -27,26 +27,26 @@ public class JogoDaVelha {
     }
 
     private static void desenharTabuleiro(String[][] tabuleiro) {
-        System.out.println("     0  |  1  |  2  ");
+        System.out.println("      C-0  |  C-1  |  C-2  ");
         for (int linha = 0; linha < tabuleiro.length; linha++) {
             for (int coluna = 0; coluna < tabuleiro.length; coluna++) {
                 if (coluna == 0) {
                     if (tabuleiro[linha][coluna] != null) {
-                        System.out.printf("  %d  %S  |", linha, tabuleiro[linha][coluna]);
+                        System.out.printf("  L-%d  %S   |", linha, tabuleiro[linha][coluna]);
                     } else {
-                        System.out.printf("  %d  %S  |", linha, " ");
+                        System.out.printf("  L-%d  %S   |", linha, " ");
                     }
                 } else if (coluna == tabuleiro.length-1) {
                     if (tabuleiro[linha][coluna] != null) {
-                        System.out.printf("  %S  \n", tabuleiro[linha][coluna]);
+                        System.out.printf("   %S  \n", tabuleiro[linha][coluna]);
                     } else {
-                        System.out.printf("     \n");
+                        System.out.printf("      \n");
                     }
                 }else {
                     if (tabuleiro[linha][coluna] != null) {
-                        System.out.printf("  %S  |", tabuleiro[linha][coluna]);
+                        System.out.printf("   %S   |", tabuleiro[linha][coluna]);
                     } else {
-                        System.out.printf("     |");
+                        System.out.printf("       |");
                     }
                 }
             }
@@ -176,10 +176,10 @@ public class JogoDaVelha {
 
     private static String[][] gerarTabuleiroInicial() {
         String[][] matrizTabuleiro = new String[3][3];
-        System.out.println("     0  |  1  |  2  ");
-        System.out.println("  0     |     |     ");
-        System.out.println("  1     |     |     ");
-        System.out.println("  2     |     |     ");
+        System.out.println("      C-0  |  C-1  |  C-2  ");
+        System.out.println("  L-0      |       |     ");
+        System.out.println("  L-1      |       |     ");
+        System.out.println("  L-2      |       |     ");
         return matrizTabuleiro;
     }
 
