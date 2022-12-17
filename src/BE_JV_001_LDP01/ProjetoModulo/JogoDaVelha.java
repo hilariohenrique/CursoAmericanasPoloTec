@@ -12,6 +12,7 @@ public class JogoDaVelha {
         for (int index = 0; index < jogadores.length; index++) {
             System.out.printf("Digite o nome do %dº jogador: ",index+1);
             jogadores[index] = new Jogadores(scanner.nextLine(),false);
+
         }
     }
     static class Jogadores {
