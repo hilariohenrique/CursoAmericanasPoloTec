@@ -19,7 +19,7 @@ public class JogoDaVelha {
                 break;
             }
             if (verificarEmpate(tabuleiroDoJogo)) {
-                System.out.println("\nJogo empatado não há mais jogadas.");
+                System.out.println("\nJogo deu Velha \uD83D\uDC75\uD83C\uDFFD. Não há mais jogadas. Inicie o jogo novamente.");
                 break;
             }
             jogadorAJogar = proximoJogador(jogadorAJogar);
@@ -193,7 +193,7 @@ public class JogoDaVelha {
                 simboloDoJogador = "X";
             }
             System.out.printf("Digite o nome do %dº jogador: ", index + 1);
-            jogadores[index] = new Jogadores(scanner.nextLine(), false, simboloDoJogador);
+            jogadores[index] = new Jogadores(scanner.nextLine(), simboloDoJogador);
 
         }
         return jogadores;
@@ -203,12 +203,10 @@ public class JogoDaVelha {
 
 
         String nome;
-        boolean vencedor;
         String simbolo;
 
-        public Jogadores(String nome, boolean vencedor, String simbolo) {
+        public Jogadores(String nome, String simbolo) {
             this.nome = nome;
-            this.vencedor = vencedor;
             this.simbolo = simbolo;
         }
 
