@@ -4,18 +4,18 @@ import java.util.Scanner;
 
 public class JogoDaVelha {
     public static void main(String[] args) {
-        Jogadores[] jogador = nomearJogadores();
+        Jogador[] jogadores = nomearJogadores();
         String[][] tabuleiroDoJogo = gerarTabuleiroInicial();
-        int jogadorAJogar = proximoJogador(1);
+        int jogadorAJogar = 0;
         while (true) {
-            tabuleiroDoJogo = realizarJogada(jogadorAJogar, jogador, tabuleiroDoJogo);
+            tabuleiroDoJogo = realizarJogada(jogadorAJogar, jogadores, tabuleiroDoJogo);
             desenharTabuleiro(tabuleiroDoJogo);
-            if (verificarJogador(tabuleiroDoJogo, jogador[0])) {
-                System.out.println("\nFim de jogo ! " + jogador[0].vencedor());
+            if (verificarJogador(tabuleiroDoJogo, jogadores[0])) {
+                System.out.println(jogadores[0].vencedor());
                 break;
             }
-            if (verificarJogador(tabuleiroDoJogo, jogador[1])) {
-                System.out.println("\nFim de jogo ! " + jogador[1].vencedor());
+            if (verificarJogador(tabuleiroDoJogo, jogadores[1])) {
+                System.out.println(jogadores[1].vencedor());
                 break;
             }
             if (verificarEmpate(tabuleiroDoJogo)) {
@@ -36,13 +36,13 @@ public class JogoDaVelha {
                     } else {
                         System.out.printf("  L-%d  %S   |", linha, " ");
                     }
-                } else if (coluna == tabuleiro.length-1) {
+                } else if (coluna == tabuleiro.length - 1) {
                     if (tabuleiro[linha][coluna] != null) {
                         System.out.printf("   %S  \n", tabuleiro[linha][coluna]);
                     } else {
                         System.out.printf("      \n");
                     }
-                }else {
+                } else {
                     if (tabuleiro[linha][coluna] != null) {
                         System.out.printf("   %S   |", tabuleiro[linha][coluna]);
                     } else {
@@ -53,18 +53,18 @@ public class JogoDaVelha {
         }
     }
 
-    private static String[][] realizarJogada(int jogadorAJogar, Jogadores[] jogador, String[][] tabuleiro) {
-        while(true) {
-            int[] linhaColuna = solicitarPosicao(jogador[jogadorAJogar].getNome());
+    private static String[][] realizarJogada(int jogadorAJogar, Jogador[] jogadores, String[][] tabuleiro) {
+        while (true) {
+            int[] linhaColuna = solicitarPosicao(jogadores[jogadorAJogar].getNome());
             if (verificaPosicaoEValida(linhaColuna, tabuleiro)) {
                 if (verificarSePosicaoOcupada(linhaColuna, tabuleiro)) {
-                    tabuleiro[linhaColuna[0]][linhaColuna[1]] = jogador[jogadorAJogar].getSimbolo();
+                    tabuleiro[linhaColuna[0]][linhaColuna[1]] = jogadores[jogadorAJogar].getSimbolo();
                     return tabuleiro;
                 } else {
-                    System.out.println("A posição escolhida já está marcada, tente novamente.");
+                    System.err.println("A posição escolhida já está marcada, tente novamente.");
                 }
             } else {
-                System.out.println("A posição escolhida não é válida, tente novamente.");
+                System.err.println("A posição escolhida não é válida, tente novamente.");
             }
         }
     }
@@ -104,9 +104,8 @@ public class JogoDaVelha {
     private static int proximoJogador(int numeroJogador) {
         if (numeroJogador == 0) {
             return 1;
-        } else {
-            return 0;
         }
+        return 0;
     }
 
     private static boolean verificarEmpate(String[][] tabuleiro) {
@@ -120,7 +119,7 @@ public class JogoDaVelha {
         return true;
     }
 
-    private static boolean verificarJogador(String[][] tabuleiro, Jogadores jogador) {
+    private static boolean verificarJogador(String[][] tabuleiro, Jogador jogador) {
         if (verificarColunas(tabuleiro, jogador.getSimbolo()) ||
                 verificarLinhas(tabuleiro, jogador.getSimbolo()) ||
                 verificarDiagonalDireta(tabuleiro, jogador.getSimbolo()) ||
@@ -132,29 +131,37 @@ public class JogoDaVelha {
 
     private static boolean verificarColunas(String[][] tabuleiro, String simbolo) {
         for (int coluna = 0; coluna < tabuleiro.length; coluna++) {
+            int pontosColuna = 0;
             for (int linha = 0; linha < tabuleiro.length; linha++) {
-                if (tabuleiro[linha][coluna]!=simbolo) {
-                    return false;
+                if (tabuleiro[linha][coluna] == simbolo) {
+                    pontosColuna++;
                 }
             }
+            if (pontosColuna == 3) {
+                return true;
+            }
         }
-        return true;
+        return false;
     }
 
     private static boolean verificarLinhas(String[][] tabuleiro, String simbolo) {
         for (int linha = 0; linha < tabuleiro.length; linha++) {
+            int pontosLinha = 0;
             for (int coluna = 0; coluna < tabuleiro.length; coluna++) {
-                if (tabuleiro[linha][coluna]!=simbolo) {
-                    return false;
+                if (tabuleiro[linha][coluna] == simbolo) {
+                    pontosLinha++;
                 }
             }
+            if (pontosLinha == 3) {
+                return true;
+            }
         }
-        return true;
+        return false;
     }
 
     private static boolean verificarDiagonalDireta(String[][] tabuleiro, String simbolo) {
         for (int linhaColuna = 0; linhaColuna < tabuleiro.length; linhaColuna++) {
-            if (tabuleiro[linhaColuna][linhaColuna]!=simbolo) {
+            if (tabuleiro[linhaColuna][linhaColuna] != simbolo) {
                 return false;
             }
         }
@@ -165,7 +172,7 @@ public class JogoDaVelha {
         for (int linha = 0; linha < tabuleiro.length; linha++) {
             for (int coluna = 0; coluna < tabuleiro.length; coluna++) {
                 if (linha + coluna == tabuleiro.length - 1) {
-                    if (tabuleiro[linha][coluna]!=simbolo) {
+                    if (tabuleiro[linha][coluna] != simbolo) {
                         return false;
                     }
                 }
@@ -184,42 +191,42 @@ public class JogoDaVelha {
     }
 
 
-    public static Jogadores[] nomearJogadores() {
+    public static Jogador[] nomearJogadores() {
         Scanner scanner = new Scanner(System.in);
-        Jogadores[] jogadores = new Jogadores[2];
+        Jogador[] jogadores = new Jogador[2];
         for (int index = 0; index < jogadores.length; index++) {
             String simboloDoJogador = "O";
             if (index == 1) {
                 simboloDoJogador = "X";
             }
             System.out.printf("Digite o nome do %dº jogador: ", index + 1);
-            jogadores[index] = new Jogadores(scanner.nextLine(), simboloDoJogador);
+            jogadores[index] = new Jogador(scanner.nextLine(), simboloDoJogador);
 
         }
         return jogadores;
     }
 
-    static class Jogadores {
+    public static class Jogador {
 
 
         String nome;
         String simbolo;
 
-        public Jogadores(String nome, String simbolo) {
+        public Jogador(String nome, String simbolo) {
             this.nome = nome;
             this.simbolo = simbolo;
         }
 
         public String getNome() {
-            return nome;
+            return this.nome;
         }
 
         public String getSimbolo() {
-            return simbolo;
+            return this.simbolo;
         }
 
         public String vencedor() {
-            return this.nome + " venceu esta partida.";
+            return "\nFim de jogo ! " +this.nome + " venceu esta partida.";
         }
 
     }
