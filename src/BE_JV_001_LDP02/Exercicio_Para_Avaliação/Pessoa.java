@@ -4,9 +4,9 @@ package BE_JV_001_LDP02.Exercicio_Para_Avaliação;
 public abstract class Pessoa {
     private String nome;
     private String cpf;
-   private String endereco;
+    private String endereco;
 
-    public Pessoa(){
+    public Pessoa() {
     }
 
     public Pessoa(String nome, String cpf, String endereco) {
@@ -39,4 +39,10 @@ public abstract class Pessoa {
         this.endereco = endereco;
     }
 
+    public boolean equals(Pessoa pessoa) {
+        if (this == pessoa) return true;
+        return this.getNome() == pessoa.getNome() && this.getCpf() == pessoa.getCpf() &&
+                this.getEndereco() == pessoa.getEndereco();
+
+    }
 }
