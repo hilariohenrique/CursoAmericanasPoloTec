@@ -1,5 +1,6 @@
 package BE_JV_001_LDP02.Exercicio_Para_Avaliação.Util;
 
+import BE_JV_001_LDP02.Exercicio_Para_Avaliação.Atendente;
 import BE_JV_001_LDP02.Exercicio_Para_Avaliação.Paciente;
 
 import java.util.ArrayList;
@@ -7,7 +8,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Fila {
-    List<Paciente> filaEspera = new ArrayList<Paciente>();
+    private final List<Paciente> filaEspera = new ArrayList<Paciente>();
 
     public List<Paciente> adicionarAFila(Paciente paciente) {
         this.filaEspera.add(paciente);

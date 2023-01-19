@@ -1,13 +1,16 @@
 package BE_JV_001_LDP02.Exercicio_Para_Avaliação;
 
+import BE_JV_001_LDP02.Exercicio_Para_Avaliação.Util.Cirurgia;
+
 public class Main {
     public static void main(String[] args) {
-        Atendente atendente = new Atendente("Leo","021351","Rua talta","123");
-        Medico medico = new Medico("Le o","021351","Rua talta","123");
-        System.out.println(atendente.equals(medico));
-//        System.out.println(atendente.toString());
-//        Medico medico = new Medico("Barrabas", "23568","Rua fulanodetal","1122");
-////        medico.realizarDiagnostico();
+        Atendente atendente = new Atendente("Vitor","021351","Rua talta","123");
+        Medico medico = new Medico("Lisy","021351","Rua talta","123");
+        Paciente paciente = new Paciente("Tanos","021351","Rua talta");
+        Cirurgiao cirurgiao= new Cirurgiao("Ligeirinho","021351","Rua talta","123");
 
+
+        atendente.iniciarAtendimento(paciente);
+        medico.realizarDiagnostico(paciente.getSintomas());
     }
 }

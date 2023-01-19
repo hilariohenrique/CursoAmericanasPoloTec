@@ -8,11 +8,10 @@ public class Paciente extends Pessoa {
     public Paciente() {
     }
 
-    public Paciente(String nome, String cpf, String endereco, List<String> sintomas) {
+    public Paciente(String nome, String cpf, String endereco) {
         super(nome, cpf, endereco);
-        this.sintomas = sintomas;
-    }
 
+    }
 
     public List<String> getSintomas() {
         return sintomas;

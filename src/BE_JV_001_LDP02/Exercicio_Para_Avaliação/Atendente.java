@@ -1,6 +1,8 @@
 package BE_JV_001_LDP02.Exercicio_Para_Avaliação;
 
 
+import BE_JV_001_LDP02.Exercicio_Para_Avaliação.Util.Fila;
+
 public class Atendente extends Funcionario{
     private final String cargo = "Atendente";
     private final String setor = "Recepcao";
@@ -17,7 +19,8 @@ public class Atendente extends Funcionario{
 
     public final void iniciarAtendimento(Paciente paciente){
         System.out.println("Atendente está iniciando atendimento");
-
+        Fila fila = new Fila();
+        fila.adicionarAFila(paciente);
         System.out.println("Atendente finalizou o atendimento e encaminhou o paciente para sala de espera e o colocou na fila");
 
 
