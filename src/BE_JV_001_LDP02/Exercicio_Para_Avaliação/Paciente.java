@@ -2,15 +2,10 @@ package BE_JV_001_LDP02.Exercicio_Para_Avaliação;
 
 import java.util.List;
 
-public class Paciente extends Pessoa{
+public class Paciente extends Pessoa {
     private List<String> sintomas;
 
     public Paciente() {
-    }
-
-    @Override
-    public boolean equals(Pessoa pessoa) {
-        return false;
     }
 
     public Paciente(String nome, String cpf, String endereco, List<String> sintomas) {

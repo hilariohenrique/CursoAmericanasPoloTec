@@ -39,10 +39,14 @@ public abstract class Pessoa {
         this.endereco = endereco;
     }
 
-    public boolean equals(Pessoa pessoa) {
+    @Override
+    public boolean equals(Object object) {
+        if(!(object instanceof Pessoa))
+            return false;
+        Pessoa pessoa = (Pessoa) object;
         if (this == pessoa) return true;
-        return this.getNome() == pessoa.getNome() && this.getCpf() == pessoa.getCpf() &&
-                this.getEndereco() == pessoa.getEndereco();
+        return this.nome == pessoa.getNome() && this.cpf == pessoa.getCpf() &&
+                this.endereco == pessoa.getEndereco();
 
     }
 }

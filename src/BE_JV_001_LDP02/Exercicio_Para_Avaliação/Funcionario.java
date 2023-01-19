@@ -10,11 +10,6 @@ public class Funcionario extends Pessoa{
 
     }
 
-    @Override
-    public boolean equals(Pessoa pessoa) {
-        return false;
-    }
-
     public Funcionario(String nome, String cpf,String endereco, String matricula) {
         super(nome, cpf, endereco);
         this.matricula = matricula;
