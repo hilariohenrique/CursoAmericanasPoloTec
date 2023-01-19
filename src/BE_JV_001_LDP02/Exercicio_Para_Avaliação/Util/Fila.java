@@ -14,6 +14,7 @@ public class Fila {
         return filaEspera;
     }
 
+
     public List<Paciente> removerDaFila(Paciente paciente) {
         for(Paciente p: filaEspera) {
             if (p.equals(paciente)) {

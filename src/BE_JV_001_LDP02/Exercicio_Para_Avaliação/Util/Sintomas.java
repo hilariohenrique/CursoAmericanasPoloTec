@@ -15,6 +15,7 @@ public final class Sintomas {
     return listaSintomas;
     }
 
+
     @Override
     public String toString() {
         return "Sintomas{"+ listaSintomas + "}";

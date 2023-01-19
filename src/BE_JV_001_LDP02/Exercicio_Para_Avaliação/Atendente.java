@@ -14,6 +14,7 @@ public class Atendente extends Funcionario{
         super.setCargo(this.cargo);
         super.setSetor(this.setor);
     }
+
     public final void iniciarAtendimento(Paciente paciente){
         System.out.println("Atendente está iniciando atendimento");
 

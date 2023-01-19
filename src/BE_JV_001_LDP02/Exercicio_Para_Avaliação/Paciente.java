@@ -13,6 +13,7 @@ public class Paciente extends Pessoa {
         this.sintomas = sintomas;
     }
 
+
     public List<String> getSintomas() {
         return sintomas;
     }

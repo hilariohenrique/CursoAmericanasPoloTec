@@ -8,5 +8,6 @@ public class Main {
 //        System.out.println(atendente.toString());
 //        Medico medico = new Medico("Barrabas", "23568","Rua fulanodetal","1122");
 ////        medico.realizarDiagnostico();
+
     }
 }

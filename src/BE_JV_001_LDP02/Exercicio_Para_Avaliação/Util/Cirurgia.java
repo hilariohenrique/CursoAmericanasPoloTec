@@ -8,6 +8,7 @@ public final class Cirurgia {
     public Cirurgia() {
     }
 
+
     public void marcarCirurgia(String nomeCirugiao, String tipoCirurgia, long dataCirurgia) {
         this.nomeCirugiao = nomeCirugiao;
         this.tipoCirurgia = tipoCirurgia;

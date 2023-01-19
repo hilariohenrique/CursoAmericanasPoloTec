@@ -17,6 +17,7 @@ public class Medico extends Funcionario{
         super.setCargo(this.cargo);
         super.setSetor(this.setor);
     }
+
     public final String realizarDiagnostico(List<String> sintomas){
         if(sintomas.size()==0) {
             return "A lista de sintomas está vazia. Não é possível fazer o diagnósticos.";

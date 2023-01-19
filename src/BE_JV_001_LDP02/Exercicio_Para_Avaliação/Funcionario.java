@@ -31,6 +31,7 @@ public class Funcionario extends Pessoa{
         this.setor = setor;
     }
 
+
     public String getCargo() {
         return cargo;
     }
