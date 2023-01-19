@@ -1,6 +1,6 @@
-package BE_JV_001_LDP02.Exercicio_Para_Avaliação;
+package BE_JV_001_LDP02.Exercicio_Para_Avaliacao;
 
-import BE_JV_001_LDP02.Exercicio_Para_Avaliação.Util.Sintomas;
+import BE_JV_001_LDP02.Exercicio_Para_Avaliacao.Util.Sintomas;
 
 import java.util.List;
 

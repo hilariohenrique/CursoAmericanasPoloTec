@@ -1,7 +1,7 @@
-package BE_JV_001_LDP02.Exercicio_Para_Avaliação;
+package BE_JV_001_LDP02.Exercicio_Para_Avaliacao;
 
 
-import BE_JV_001_LDP02.Exercicio_Para_Avaliação.Util.Fila;
+import BE_JV_001_LDP02.Exercicio_Para_Avaliacao.Util.Fila;
 
 public class Atendente extends Funcionario{
     private final String cargo = "Atendente";

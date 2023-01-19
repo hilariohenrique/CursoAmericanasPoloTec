@@ -1,4 +1,4 @@
-package BE_JV_001_LDP02.Exercicio_Para_Avaliação;
+package BE_JV_001_LDP02.Exercicio_Para_Avaliacao;
 
 public class Funcionario extends Pessoa{
     private String matricula;

@@ -1,4 +1,4 @@
-package BE_JV_001_LDP02.Exercicio_Para_Avaliação.Util;
+package BE_JV_001_LDP02.Exercicio_Para_Avaliacao.Util;
 
 import java.util.ArrayList;
 import java.util.List;

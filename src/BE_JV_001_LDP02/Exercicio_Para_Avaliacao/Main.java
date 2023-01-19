@@ -1,6 +1,4 @@
-package BE_JV_001_LDP02.Exercicio_Para_Avaliação;
-
-import BE_JV_001_LDP02.Exercicio_Para_Avaliação.Util.Cirurgia;
+package BE_JV_001_LDP02.Exercicio_Para_Avaliacao;
 
 public class Main {
     public static void main(String[] args) {

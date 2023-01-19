@@ -1,11 +1,9 @@
-package BE_JV_001_LDP02.Exercicio_Para_Avaliação.Util;
+package BE_JV_001_LDP02.Exercicio_Para_Avaliacao.Util;
 
-import BE_JV_001_LDP02.Exercicio_Para_Avaliação.Atendente;
-import BE_JV_001_LDP02.Exercicio_Para_Avaliação.Paciente;
+import BE_JV_001_LDP02.Exercicio_Para_Avaliacao.Paciente;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class Fila {
     private final List<Paciente> filaEspera = new ArrayList<Paciente>();
