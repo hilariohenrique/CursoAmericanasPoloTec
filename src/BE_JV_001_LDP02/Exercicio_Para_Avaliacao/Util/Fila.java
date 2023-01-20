@@ -6,7 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Fila {
-    private final List<Paciente> filaEspera = new ArrayList<Paciente>();
+
+    private List<Paciente> filaEspera = new ArrayList<Paciente>();
 
     public List<Paciente> adicionarAFila(Paciente paciente) {
         this.filaEspera.add(paciente);
