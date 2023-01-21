@@ -1,4 +1,4 @@
-package BE_JV_001_LDP02.Exercicio_20_02_23;
+package BE_JV_001_LDP02.Exercicio_20_01_23;
 
 public abstract class Produto {
     private String nome;

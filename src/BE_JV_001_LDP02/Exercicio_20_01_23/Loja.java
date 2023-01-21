@@ -1,7 +1,7 @@
-package BE_JV_001_LDP02.Exercicio_20_02_23;
+package BE_JV_001_LDP02.Exercicio_20_01_23;
 
-import BE_JV_001_LDP02.Exercicio_20_02_23.Pessoa.Funcionario;
-import BE_JV_001_LDP02.Exercicio_20_02_23.Pessoa.Gerente;
+import BE_JV_001_LDP02.Exercicio_20_01_23.Pessoa.Funcionario;
+import BE_JV_001_LDP02.Exercicio_20_01_23.Pessoa.Gerente;
 
 import java.util.ArrayList;
 import java.util.List;
