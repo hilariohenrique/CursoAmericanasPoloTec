@@ -1,4 +1,4 @@
-package BE_JV_001_LDP02.Exercicio_20_01_23;
+package BE_JV_002_POO_I.Exercicio_20_01_23;
 
 public class Computador extends Produto{
     private String marca;

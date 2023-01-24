@@ -1,6 +1,6 @@
-package BE_JV_001_LDP02.Exercicio_Para_Avaliacao.Util;
+package BE_JV_002_POO_I.Exercicio_Para_Avaliacao.Util;
 
-import BE_JV_001_LDP02.Exercicio_Para_Avaliacao.Paciente;
+import BE_JV_002_POO_I.Exercicio_Para_Avaliacao.Paciente;
 
 import java.util.ArrayList;
 import java.util.List;

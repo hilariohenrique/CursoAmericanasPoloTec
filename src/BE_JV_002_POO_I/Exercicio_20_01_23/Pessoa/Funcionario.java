@@ -1,6 +1,6 @@
-package BE_JV_001_LDP02.Exercicio_20_01_23.Pessoa;
+package BE_JV_002_POO_I.Exercicio_20_01_23.Pessoa;
 
-import BE_JV_001_LDP02.Exercicio_20_01_23.Produto;
+import BE_JV_002_POO_I.Exercicio_20_01_23.Produto;
 
 public class Funcionario {
     private String nome;

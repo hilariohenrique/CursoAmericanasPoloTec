@@ -1,4 +1,4 @@
-package BE_JV_001_LDP02.Exercicio_Para_Avaliacao;
+package BE_JV_002_POO_I.Exercicio_Para_Avaliacao;
 
 public class Cirurgiao extends Funcionario{
     private final String cargo = "Cirurgião";

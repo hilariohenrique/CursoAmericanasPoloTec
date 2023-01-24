@@ -1,6 +1,6 @@
-package BE_JV_001_LDP02.Exercicio_Para_Avaliacao;
+package BE_JV_002_POO_I.Exercicio_Para_Avaliacao;
 
-import BE_JV_001_LDP02.Exercicio_Para_Avaliacao.Util.Sala;
+import BE_JV_002_POO_I.Exercicio_Para_Avaliacao.Util.Sala;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package BE_JV_001_LDP02.Exercicio_Para_Avaliacao.Util;
+package BE_JV_002_POO_I.Exercicio_Para_Avaliacao.Util;
 
 public final class Cirurgia {
     private String nomeCirugiao;
