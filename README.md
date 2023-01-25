@@ -1,2 +1,1 @@
-# Curso Polo Tech 
-Parceria deSi Ada & Americanas
+# Curso Polo Tech Ada & Americanas
