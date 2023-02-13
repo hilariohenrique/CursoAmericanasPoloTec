@@ -78,10 +78,6 @@ public class Carro implements Veiculo {
     }
 
     @Override
-    public void setAlugado() {
-
-    }
-
     public void setAlugado(boolean alugado) {
         this.alugado = alugado;
     }

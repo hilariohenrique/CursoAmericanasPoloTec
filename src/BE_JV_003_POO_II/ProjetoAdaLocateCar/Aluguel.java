@@ -1,6 +1,5 @@
 package BE_JV_003_POO_II.ProjetoAdaLocateCar;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
@@ -18,7 +17,7 @@ public class Aluguel {
         this.cliente = cliente;
         this.dataAluguel = dataAluguel;
         this.dataDevolucao = dataDevolucao;
-
+        veiculo.setAlugado(true);
     }
 
     public Veiculo getVeiculo() {
@@ -37,7 +36,8 @@ public class Aluguel {
         return dataDevolucao;
     }
 
-    public void setDataDevolucao(LocalDateTime dataDevolucao) {
+    public void devolverVeiculo(Veiculo veiculo, LocalDateTime dataDevolucao) {
+        veiculo.setAlugado(false);
         this.dataDevolucao = dataDevolucao;
     }
 
@@ -51,13 +51,13 @@ public class Aluguel {
     }
 
     public double calcularDesconto() {
-        if (cliente instanceof PessoaFisica) {
+        if (this.cliente instanceof PessoaFisica) {
             if (calcularDias() > 5) {
-                return calcularValorDiarias() * 0.05;
+                return calcularValorDiarias() * 0.05d;
             }
-        } else if (cliente instanceof PessoaJuridica) {
+        } else if (this.cliente instanceof PessoaJuridica) {
             if (calcularDias() > 3) {
-                return calcularValorDiarias() * 0.1;
+                return calcularValorDiarias() * 0.1d;
             }
         }
         return 0;
