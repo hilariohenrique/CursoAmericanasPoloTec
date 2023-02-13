@@ -34,8 +34,9 @@ public class Main {
         alugueis.add(new Aluguel(veiculos.get(0), clientes.get(0), diaInicio, diaFinal01));
         alugueis.add(new Aluguel(veiculos.get(1), clientes.get(1), diaInicio, diaFinal02));
         alugueis.add(new Aluguel(veiculos.get(2), clientes.get(1), diaInicio, diaFinal01));
-        alugueis.get(0).devolverVeiculo(veiculos.get(0),diaFinal01);
-        alugueis.get(1).devolverVeiculo(veiculos.get(1),diaFinal01);
+
+        alugueis.get(0).devolverVeiculo(veiculos.get(0),diaFinal02);
+        alugueis.get(1).devolverVeiculo(veiculos.get(1),diaFinal02);
         alugueis.get(2).devolverVeiculo(veiculos.get(2),diaFinal01);
 
         for (Aluguel aluguel : alugueis) {
