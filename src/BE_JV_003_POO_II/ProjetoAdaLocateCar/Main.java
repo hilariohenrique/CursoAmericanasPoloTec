@@ -15,6 +15,7 @@ public class Main {
         carros.add(new Carro(carros, "asd1234", "Gol", TipoVeiculo.PEQUENO));
         carros.add(new Carro(carros, "asd1232", "Civic", TipoVeiculo.MEDIO));
         carros.add(new Carro(carros, "asd1235", "Sandero", TipoVeiculo.SUV));
+
         /*
         Aqui o filtro dos carros que contém parte do nome a ser pesquisado. Cheguei a achar que essa
         funcionalidade poderia ser facilitada com generics mas tive difilculdades em fazer essa parte.
@@ -24,9 +25,9 @@ public class Main {
         System.out.println(filtroVeiculos);
         /*
         Criação dos clientes tanto pessoa física como juridica, implementando a interface cliente
-        e deixando daca cadastro unico usando a lista de clientes. Não consegui identificar outra
+        e deixando cada cadastro unico usando a lista de clientes. Não consegui identificar outra
         forma de verificar a duplicidade de clientes a não ser passando a lista de clientes já
-        cadastrada, assim como como os veículos.
+        cadastrada, assim como foi nos veículos.
          */
         List<Cliente> clientes = new ArrayList<>();
         clientes.add(new PessoaFisica(clientes, "Hilario", "123456"));
@@ -38,11 +39,12 @@ public class Main {
         LocalDateTime diaFinal01 = LocalDateTime.of(2022, 2, 1, 17, 25, 00);
         LocalDateTime diaFinal02 = LocalDateTime.of(2022, 2, 5, 17, 31, 00);
         /*
-        Criação de alugueies como objetos que contem objetos do tipo veiculo e cliente.
-        Aqui um aluguel pode conter um único veículo trazido da lista de carros que não esteja alugado e que passa
-        a está alugado a partir do momento em que se cria o aluguel estando assim indisponível.
-        E pode assim um cliente pode alugar vários veículos. O aluguel é feito inserindo uma data de aluguel e uma de
-        devolução, ajudando assim no pré calculo do valor e do desconto.
+        Criação de alugueis como objetos que contem objetos do tipo veiculo e cliente.
+        Aqui um aluguel pode conter um único veículo trazido da lista de carros que não
+        esteja alugado e que passa a está alugado a partir do momento em que se cria o
+        aluguel estando assim indisponível. Um cliente pode alugar vários veículos, o
+        limite é o número de veículos da locadora. O aluguel é feito inserindo uma data
+        de aluguel e uma de devolução, ajudando assim no pré calculo do valor e do desconto.
         */
         List<Aluguel> alugueis = new ArrayList<>();
         alugueis.add(new Aluguel(carros.get(0), clientes.get(0), diaInicio, diaFinal01));
@@ -60,6 +62,10 @@ public class Main {
         alugueis.get(0).devolverVeiculo(carros.get(0), alugueis.get(0).getDataDevolucao());
         alugueis.get(1).devolverVeiculo(carros.get(1), diaFinal02);
         alugueis.get(2).devolverVeiculo(carros.get(2), diaFinal01);
+
+        //Impressão dos alugueis realizados após a devolução
+        alugueis.forEach(aluguel -> System.out.println(aluguel.toString()));
+
 
 
 
