@@ -7,41 +7,63 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        List<Veiculo> veiculos = new ArrayList<>();
-        veiculos.add(new Carro(veiculos, "asd1234", "Gol", TipoVeiculo.PEQUENO));
-        veiculos.add(new Carro(veiculos, "asd1232", "Civic", TipoVeiculo.MEDIO));
-        veiculos.add(new Carro(veiculos, "asd1235", "Sandero", TipoVeiculo.SUV));
-//        for(Veiculo veiculo: veiculos){
-//            System.out.println(veiculo);
-//        }
+        /*
+        Criação de lista de carros da locadora. Não consegui fazer um meio em que não fosse
+        necessário passar a lista de carros para verificar que só há um veículo com placa única.
+        */
+        List<Veiculo> carros = new ArrayList<>();
+        carros.add(new Carro(carros, "asd1234", "Gol", TipoVeiculo.PEQUENO));
+        carros.add(new Carro(carros, "asd1232", "Civic", TipoVeiculo.MEDIO));
+        carros.add(new Carro(carros, "asd1235", "Sandero", TipoVeiculo.SUV));
+        /*
+        Aqui o filtro dos carros que contém parte do nome a ser pesquisado. Cheguei a achar que essa
+        funcionalidade poderia ser facilitada com generics mas tive difilculdades em fazer essa parte.
+        Portanto uma parte do nome é pesquisada e retornado uma lista dos veículos que a possuem.
+         */
+        List<Veiculo> filtroVeiculos = carros.stream().filter(veiculo -> veiculo.getNome().contains("Civ")).toList();
+        System.out.println(filtroVeiculos);
+        /*
+        Criação dos clientes tanto pessoa física como juridica, implementando a interface cliente
+        e deixando daca cadastro unico usando a lista de clientes. Não consegui identificar outra
+        forma de verificar a duplicidade de clientes a não ser passando a lista de clientes já
+        cadastrada, assim como como os veículos.
+         */
         List<Cliente> clientes = new ArrayList<>();
         clientes.add(new PessoaFisica(clientes, "Hilario", "123456"));
         clientes.add(new PessoaJuridica(clientes, "ARCOMP Ltda", "11312134532"));
-//        for(Cliente cliente: clientes){
-//            System.out.println(cliente);
-//        }
-        List<Aluguel> alugueis = new ArrayList<>();
+        /*
+        Criação de datas usando o LocalDateTime
+         */
         LocalDateTime diaInicio = LocalDateTime.of(2022, 1, 31, 17, 30, 00);
         LocalDateTime diaFinal01 = LocalDateTime.of(2022, 2, 1, 17, 25, 00);
         LocalDateTime diaFinal02 = LocalDateTime.of(2022, 2, 5, 17, 31, 00);
+        /*
+        Criação de alugueies como objetos que contem objetos do tipo veiculo e cliente.
+        Aqui um aluguel pode conter um único veículo trazido da lista de carros que não esteja alugado e que passa
+        a está alugado a partir do momento em que se cria o aluguel estando assim indisponível.
+        E pode assim um cliente pode alugar vários veículos. O aluguel é feito inserindo uma data de aluguel e uma de
+        devolução, ajudando assim no pré calculo do valor e do desconto.
+        */
+        List<Aluguel> alugueis = new ArrayList<>();
+        alugueis.add(new Aluguel(carros.get(0), clientes.get(0), diaInicio, diaFinal01));
+        alugueis.add(new Aluguel(carros.get(1), clientes.get(1), diaInicio, diaFinal02));
+        alugueis.add(new Aluguel(carros.get(2), clientes.get(1), diaInicio, diaFinal01));
+        //Impressão dos alugueis realizados e seus custos antes da devolução
 
-//        for (int c = 0; c < clientes.size(); c++) {
-//            for (int v = 0; v < veiculos.size(); v++) {
-//                alugueis.add(new Aluguel(veiculos.get(v), clientes.get(c), diaInicio, diaFinal01));
-//                alugueis.add(new Aluguel(veiculos.get(v), clientes.get(c), diaInicio, diaFinal02));
-//            }
-//        }
-        alugueis.add(new Aluguel(veiculos.get(0), clientes.get(0), diaInicio, diaFinal01));
-        alugueis.add(new Aluguel(veiculos.get(1), clientes.get(1), diaInicio, diaFinal02));
-        alugueis.add(new Aluguel(veiculos.get(2), clientes.get(1), diaInicio, diaFinal01));
+        alugueis.forEach(aluguel -> System.out.println(aluguel.toString()));
 
-        alugueis.get(0).devolverVeiculo(veiculos.get(0),diaFinal02);
-        alugueis.get(1).devolverVeiculo(veiculos.get(1),diaFinal02);
-        alugueis.get(2).devolverVeiculo(veiculos.get(2),diaFinal01);
+        /*
+        Devolução de veículos podendo ser atribuida uma nova data de devolução, assim se
+        houver atraso ou adiamento da data de entrega do veículo é possivel recalcular o
+        valor do aluguel. O veiculo só passar a constar como disponível se for feita a devolução.
+         */
+        alugueis.get(0).devolverVeiculo(carros.get(0), alugueis.get(0).getDataDevolucao());
+        alugueis.get(1).devolverVeiculo(carros.get(1), diaFinal02);
+        alugueis.get(2).devolverVeiculo(carros.get(2), diaFinal01);
 
-        for (Aluguel aluguel : alugueis) {
-            System.out.println(aluguel.toString());
-        }
+
+
+
 
 
     }

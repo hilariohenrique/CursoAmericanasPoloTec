@@ -8,8 +8,6 @@ public class Carro implements Veiculo {
     private TipoVeiculo tipo;
     private boolean alugado;
 
-    private List<Veiculo> listaVeiculos;
-
     public Carro(List<Veiculo> listaVeiculos, String placa, String nome, TipoVeiculo tipo) {
         if (carroExiste(listaVeiculos, placa)) {
             throw new RuntimeException("O veículo de placa " + placa + " já foi cadastrado, favor cadastrar outro veículo");

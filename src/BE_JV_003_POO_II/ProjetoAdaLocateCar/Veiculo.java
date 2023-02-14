@@ -12,7 +12,7 @@ public interface Veiculo {
 
     boolean isAlugado();
 
-    void setAlugado(boolean alugado);
+    public void setAlugado(boolean alugado);
 
     double getValorDiaria();
 }

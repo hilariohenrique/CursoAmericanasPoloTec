@@ -11,7 +11,7 @@ public class Aluguel {
 
     public Aluguel(Veiculo veiculo, Cliente cliente, LocalDateTime dataAluguel, LocalDateTime dataDevolucao) {
         if (veiculo.isAlugado()) {
-            throw new RuntimeException("O Veiculo em questão ja está alugado;");
+            throw new RuntimeException("O Veiculo em questão já está alugado;");
         }
         this.veiculo = veiculo;
         this.cliente = cliente;
